@@ -1,28 +1,26 @@
 package src.main.model;
 
 import src.main.model.constants.Colour;
+import src.main.model.constants.Discount;
 
 public class Apple extends Food implements Discountable {
 
     private String colour;   //цвет яблок
 
 
-    public Apple(int amount, double price, boolean isVegetarian) {
-        super(amount,price,true);
-        this.colour = "red";
-
-    }
-
-    public Apple(int amount, int price, boolean isVegeterian) {
+    public Apple(int amount, int price, String colour) {
         super(amount, price, true);
-        this.colour = "green";
+        this.colour = colour;
     }
 
     @Override
     public double getDiscount() {
-        if (Colour.redApple == colour) {
+        if (Colour.RED_APPLE == colour) {
+            return Discount.RED_APPLE;
        }
-        return 60;
+        return 0;
     }
-
+public String getColour() {
+        return colour;
+}
 }
